@@ -56,11 +56,17 @@ if(DEFINED CMAKE_TOOLCHAIN_FILE)
 	include(${CMAKE_TOOLCHAIN_FILE})
 elseif(WIN32)
 	include("${TOOLS_CMAKE_DIR}/toolchain/windows/WindowsPC-MSVC.cmake")
+else(UNIX)
+	# if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+		include("${TOOLS_CMAKE_DIR}/toolchain/linux/Linux_Clang.cmake")
+	# else()
+		# include("${TOOLS_CMAKE_DIR}/toolchain/linux/Linux_GCC.cmake")
+	# endif()
 endif()
 
 if (NOT DEFINED BUILD_PLATFORM)
 	# For now, we expect BUILD_PLATFORM to have been set via a Toolchain file.
-	message(FATAL_ERROR "BUILD_PLATFORM not defined. Please always supply one of the CRYENGINE toolchain files.")
+	message(FATAL_ERROR "BUILD_PLATFORM not defined. Please always supply one of the CRYENGINE toolchain files.Specify the CMAKE_TOOLCHAIN_FILE a FILEPATH.")
 endif()
 
 set(CMAKE_C_STANDARD 11)

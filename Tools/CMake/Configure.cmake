@@ -17,6 +17,7 @@ if(NOT ${CMAKE_GENERATOR} MATCHES "Visual Studio")
 	list(FIND valid_configs "${CMAKE_BUILD_TYPE}" config_index)
 	if(${config_index} EQUAL -1)
 		message(SEND_ERROR "Build type \"${CMAKE_BUILD_TYPE}\" is not supported, set CMAKE_BUILD_TYPE to one of ${valid_configs}")
+		set(CMAKE_BUILD_TYPE Profile) # Now, set the default build type to Profile
 	endif()
 endif()
 

@@ -13,22 +13,16 @@ if(EXISTS "${CRYENGINE_DIR}/linux_bootstrap")
 endif()
 
 if(NOT CMAKE_C_COMPILER)
-	if(EXISTS "${SDK_DIR}/clang-5.0/bin/clang")
-		set(CMAKE_C_COMPILER "${SDK_DIR}/clang-5.0/bin/clang")
-	else()
-		set(CMAKE_C_COMPILER clang-5.0)
-	endif()
+	set(CMAKE_C_COMPILER clang)
 endif()
 if(NOT CMAKE_CXX_COMPILER)
-	if(EXISTS "${SDK_DIR}/clang-5.0/bin/clang++")
-		set(CMAKE_CXX_COMPILER "${SDK_DIR}/clang-5.0/bin/clang++")
-	else()
-		set(CMAKE_CXX_COMPILER clang++-5.0)
-	endif()
+	set(CMAKE_CXX_COMPILER clang++)
 endif()
 
 message(STATUS "CMAKE_C_COMPILER = ${CMAKE_C_COMPILER}")
 message(STATUS "CMAKE_CXX_COMPILER = ${CMAKE_CXX_COMPILER}")
+message(STATUS "CMAKE_C_COMPILER_ID = ${CMAKE_C_COMPILER_ID}")
+message(STATUS "CMAKE_CXX_COMPILER_ID = ${CMAKE_CXX_COMPILER_ID}")
 
 add_definitions(-DLINUX64)
 
@@ -36,3 +30,6 @@ include ("${CMAKE_CURRENT_LIST_DIR}/../../CRYENGINE-CLANG.cmake")
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLINUX -D__linux__" CACHE STRING "C Common Flags" FORCE)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLINUX -D__linux__" CACHE STRING "C++ Common Flags" FORCE)
+
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
+set(CMAKE_SKIP_RPATH TRUE)

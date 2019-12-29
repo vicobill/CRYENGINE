@@ -26,11 +26,14 @@ _WAF_/user_settings.options
 /TestResults/*
 /Solutions/*
 /solutions_cmake/*
+[Bb]uild/
 /.depproj/*
 /project.sln
 /[Ll]og[Bb]ackups
 /[Uu]ser*/
 __pycache__/*
+.vscode/
+
 
 # Might contain a license key, so don't add it to a repo.
 /Code/Tools/waf-1.7.13/recode.lic
@@ -38,3 +41,4 @@ __pycache__/*
 
 # These are handled elsewhere.
 /Code/SDKs/*
+

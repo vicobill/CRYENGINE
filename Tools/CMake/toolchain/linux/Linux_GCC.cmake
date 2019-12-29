@@ -14,11 +14,11 @@ endif()
 
 # QtCreator requires selection of a "kit", which includes these, so don't force them.
 if(NOT CMAKE_C_COMPILER)
-	set(CMAKE_C_COMPILER gcc-7)
+	set(CMAKE_C_COMPILER gcc)
 endif()
 
 if(NOT CMAKE_CXX_COMPILER)
-	set(CMAKE_CXX_COMPILER g++-7)
+	set(CMAKE_CXX_COMPILER g++)
 endif()
 
 message(STATUS "CMAKE_C_COMPILER = ${CMAKE_C_COMPILER}")
